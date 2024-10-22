@@ -23,7 +23,7 @@ script:
 notifications:
   email:
     recipients:
-      - tu-email@ejemplo.com
+      - brandocel19@gmail.com
     on_success: change  # Solo si cambia el estado (fallo -> éxito)
     on_failure: always  # Siempre notificar en caso de fallo
 
