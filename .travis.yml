@@ -1,0 +1,37 @@
+# Lenguaje y versión de Python
+language: python
+python:
+  - "3.8"  # Cambiar según tu proyecto
+
+# Habilitar cache para acelerar los builds
+cache: 
+  pip
+
+# Variables de entorno (opcional)
+env:
+  - ENVIRONMENT=production
+
+# Instrucciones para instalar las dependencias
+install:
+  - pip install -r requirements.txt
+
+# Comando para ejecutar las pruebas
+script:
+  - pytest
+
+# Configurar notificaciones por correo
+notifications:
+  email:
+    recipients:
+      - tu-email@ejemplo.com
+    on_success: change  # Solo si cambia el estado (fallo -> éxito)
+    on_failure: always  # Siempre notificar en caso de fallo
+
+# Configuración de despliegue automático (opcional)
+deploy:
+  provider: heroku  # Ejemplo con Heroku
+  api_key:
+    secure: "YOUR_ENCRYPTED_API_KEY"  # Reemplazar con API Key encriptada
+  app: nombre-de-tu-app-en-heroku
+  on:
+    branch: main  # Desplegar solo si está en la rama main
